@@ -9,6 +9,7 @@ int main() {
     std::cin >> number2;
     sum = number1 + number2;
     std::cout << "Sum is " << sum << std::endl;
+    vdd = number1 == number2;
 
     return 0;
 }
