@@ -7,27 +7,7 @@ using std::endl;
 using std::string;
 using std::getline;
 
-class GradeBook {
-    public:
-        GradeBook ( string name ) {
-            setCourseName( name );
-        }
-
-        void setCourseName ( string name ) {
-            courseName = name;
-        }
-
-        string getCourseName() {
-            return courseName;
-        }
-
-        void displayMessage() {
-            cout << "Welcome to the Grade Book for\n" << getCourseName() << "!"
-                << endl;
-        }
-    private:
-        string courseName;
-};
+#include "GradeBook.h"
 
 int main() {
     string nameOfCourse;
