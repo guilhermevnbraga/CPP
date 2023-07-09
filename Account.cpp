@@ -1,26 +1,25 @@
 #include <iostream>
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
 #include "Account.h"
 
-int main() {
+int main()
+{
     int money;
-    Account myAccount( 5000 );
+    Account myAccount(5000);
 
     cout << "Inital balance: " << myAccount.getBalance() << endl;
     cout << "Enter credit amount: ";
     cin >> money;
-    cout << endl;
-    myAccount.credit( money );
+    myAccount.credit(money);
 
     cout << "Actual balance: " << myAccount.getBalance() << endl;
 
     cout << "Enter debit amount: ";
     cin >> money;
-    cout << endl;
-    myAccount.debit( money );
+    myAccount.debit(money);
 
     cout << "Final balance: " << myAccount.getBalance() << endl;
 

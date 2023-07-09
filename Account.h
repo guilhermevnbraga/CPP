@@ -27,6 +27,8 @@ class Account {
         void credit( int money ){
             if (money > 0)
                 setBalance( getBalance() + money );
+            else
+                cout << "Invalid credit amount!" << endl;
         }
 
         void debit( int money ){
