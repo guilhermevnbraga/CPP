@@ -1,32 +1,56 @@
 #include <iostream>
 using std::cout;
-using std::cin;
 using std::endl;
 
 #include <string>
 using std::string;
-using std::getline;
 
 #include "Invoice.h"
 
-int main(){
-    Invoice myInvoice("Bolina de gorfe", 32, 5000);
-    string text;
-    int integer;
+Invoice::Invoice(string indentr, int quantity, int price)
+{
+    setIndentifier(indentr);
+    setItemQuantity(quantity);
+    setItemPrice(price);
+}
 
-    cout << "Initial data:\nItem indentifier: " << myInvoice.getIndentifier() << "\nItem quantity: " << myInvoice.getItemQuantity()
-        << "\nItem price " << myInvoice.getItemPrice() << "\nInvoice amount: " << myInvoice.getInvoiceAmount() << endl;
-    
-    cout << "\nEnter the new item indentifier: ";
-    getline( cin, text );
-    myInvoice.setIndentifier(text);
-    cout << "Enter the new item quantity: ";
-    cin >> integer;
-    myInvoice.setItemQuantity(integer);
-    cout << "Enter the new item price: ";
-    cin >> integer;
-    myInvoice.setItemPrice(integer);
+void Invoice::setIndentifier(string indentr)
+{
+    indentifier = indentr;
+}
 
-    cout << "\nActual data:\nItem indentifier: " << myInvoice.getIndentifier() << "\nItem quantity: " << myInvoice.getItemQuantity()
-        << "\nItem price " << myInvoice.getItemPrice() << "\nInvoice amount: " << myInvoice.getInvoiceAmount() << endl;
+string Invoice::getIndentifier()
+{
+    return indentifier;
+}
+
+void Invoice::setItemQuantity(int quantity)
+{
+    if (quantity > 0)
+        itemQuantity = quantity;
+    else
+        itemQuantity = 0;
+}
+
+int Invoice::getItemQuantity()
+{
+    return itemQuantity;
+}
+
+void Invoice::setItemPrice(int price)
+{
+    if (price > 0)
+        itemPrice = price;
+    else
+        itemPrice = 0;
+}
+
+int Invoice::getItemPrice()
+{
+    return itemPrice;
+}
+
+int Invoice::getInvoiceAmount()
+{
+    return getItemQuantity() * getItemPrice();
 }

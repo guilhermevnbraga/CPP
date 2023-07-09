@@ -1,44 +1,10 @@
-#include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;
-
-#include <string>
-using std::string;
-using std::getline;
-
 class Account {
     public:
-        Account( int money ) {
-            if (money > 0)
-                setBalance( money );
-            else
-                setBalance(0);
-        }
-
-        void setBalance( int money ) {
-            balance = money;
-        }
-
-        int getBalance() {
-            return balance;
-        }
-
-        void credit( int money ){
-            if (money > 0)
-                setBalance( getBalance() + money );
-            else
-                cout << "Invalid credit amount!" << endl;
-        }
-
-        void debit( int money ){
-            if (money <= getBalance()){
-                setBalance( getBalance() - money );
-            }
-            else
-                cout << "Debit amount exceeded account balance." << endl;
-        }
-
+        Account( int money );
+        void setBalance( int money );
+        int getBalance();
+        void credit( int money );
+        void debit( int money );
     private:
         int balance;
 };

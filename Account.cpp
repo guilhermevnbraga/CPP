@@ -3,25 +3,44 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+#include <string>
+using std::getline;
+using std::string;
+
 #include "Account.h"
 
-int main()
+Account::Account(int money)
 {
-    int money;
-    Account myAccount(5000);
+    if (money > 0)
+        setBalance(money);
+    else
+        setBalance(0);
+}
 
-    cout << "Inital balance: " << myAccount.getBalance() << endl;
-    cout << "Enter credit amount: ";
-    cin >> money;
-    myAccount.credit(money);
+void Account::setBalance(int money)
+{
+    balance = money;
+}
 
-    cout << "Actual balance: " << myAccount.getBalance() << endl;
+int Account::getBalance()
+{
+    return balance;
+}
 
-    cout << "Enter debit amount: ";
-    cin >> money;
-    myAccount.debit(money);
+void Account::credit(int money)
+{
+    if (money > 0)
+        setBalance(getBalance() + money);
+    else
+        cout << "Invalid credit amount!" << endl;
+}
 
-    cout << "Final balance: " << myAccount.getBalance() << endl;
-
-    return 0;
+void Account::debit(int money)
+{
+    if (money <= getBalance())
+    {
+        setBalance(getBalance() - money);
+    }
+    else
+        cout << "Debit amount exceeded account balance." << endl;
 }
