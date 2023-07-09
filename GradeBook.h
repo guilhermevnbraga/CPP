@@ -7,8 +7,9 @@ using std::string;
 
 class GradeBook {
     public:
-        GradeBook ( string name ) {
-            setCourseName( name );
+        GradeBook ( string courseName, string instructorName) {
+            setCourseName( courseName );
+            setInstuctorName( instructorName );
         }
 
         void setCourseName ( string name ) {
@@ -19,10 +20,21 @@ class GradeBook {
             return courseName;
         }
 
+        void setInstuctorName( string name ) {
+            instuctorName = name;
+        }
+
+        string getInstructorName() {
+            return instuctorName;
+        }
+
         void displayMessage() {
             cout << "Welcome to the Grade Book for\n" << getCourseName() << "!"
+                << endl;
+            cout << "This course is presented by: " << getInstructorName() << "!"
                 << endl;
         }
     private:
         string courseName;
+        string instuctorName;
 };

@@ -11,7 +11,8 @@ using std::getline;
 
 int main() {
     string nameOfCourse;
-    GradeBook myGradeBook( "Curso Tecnico Integrado em Eletronica" );
+    string nameOfInstructor;
+    GradeBook myGradeBook( "Curso Tecnico Integrado em Eletronica", "Luciano Lindoso" );
 
     cout << "Initial course name is: " << myGradeBook.getCourseName()
         << endl;
@@ -20,6 +21,13 @@ int main() {
     getline( cin, nameOfCourse );
     myGradeBook.setCourseName( nameOfCourse );
     cout << endl;
+
+    cout << "Initial instructor name is: " << myGradeBook.getInstructorName()
+        << endl;
+
+    cout << "Please enter the instructor name: ";
+    getline( cin, nameOfInstructor );
+    myGradeBook.setInstuctorName( nameOfInstructor );
 
     myGradeBook.displayMessage();
 
