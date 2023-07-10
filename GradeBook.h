@@ -9,6 +9,7 @@ class GradeBook {
         void setInstuctorName( string );
         string getInstructorName();
         void displayMessage();
+        void determineClassAverage();
     private:
         string courseName;
         string instuctorName;
