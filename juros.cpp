@@ -12,17 +12,20 @@ using std::pow;
 
 int main(){
     double amount;
-    double principal = 1000;
-    double rate = .05;
+    double principal = 24;
 
-    cout << "Year" << setw( 21 ) << "Amount on deposit" << endl;
+    cout << "Year" << setw( 120 ) << "Amount on deposit" << endl;
 
     cout << fixed << setprecision( 2 );
 
-    for ( int year = 1; year <= 10; year++ ){
-        amount = principal * pow( 1.0 + rate, year );
-        
-        cout << setw( 4 ) << year << setw( 21 ) << amount << endl;
+    for ( double rate = 5; rate <= 10; rate += 5)
+    {
+        for ( int year = 379; year < 2023; year++ ){
+            amount = principal * pow( 1.0 + rate/100, year );
+            
+            cout << setw( 4 ) << year << setw( 100 ) << amount << endl;
+        }
+        cout << endl;
     }
 
     return 0;
