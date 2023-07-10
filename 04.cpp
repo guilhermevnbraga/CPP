@@ -30,8 +30,9 @@ int main() {
     myGradeBook.setInstuctorName( nameOfInstructor );
 
     myGradeBook.displayMessage();
-
     myGradeBook.determineClassAverage();
+    myGradeBook.inputGrades();
+    myGradeBook.displayGradeReport();
 
     return 0;
 }
