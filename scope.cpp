@@ -2,9 +2,9 @@
 using std::cout;
 using std::endl;
 
-void useLocal(void);
-void useStaticLocal(void);
-void useGlobal(void);
+void useLocal();
+void useStaticLocal();
+void useGlobal();
 
 int x = 1;
 
@@ -31,7 +31,7 @@ int main()
     return 0;
 }
 
-void useLocal(void)
+void useLocal()
 {
     int x = 25;
     cout << "\nlocal x is " << x << " on entering useLocal" << endl;
@@ -39,7 +39,7 @@ void useLocal(void)
     cout << "local x is " << x << " on exiting useLocal" << endl;
 }
 
-void useStaticLocal(void)
+void useStaticLocal()
 {
     static int x = 50;
     cout << "\nlocal static x is " << x << " on entering useStaticLocal"
@@ -49,7 +49,7 @@ void useStaticLocal(void)
          << endl;
 }
 
-void useGlobal(void)
+void useGlobal()
 {
     cout << "\nglobal x is " << x << " on entering useGlobal" << endl;
     x *= 10;
