@@ -31,7 +31,7 @@ int main()
     return 0;
 }
 
-void useLocal()
+inline void useLocal()
 {
     int x = 25;
     cout << "\nlocal x is " << x << " on entering useLocal" << endl;
@@ -39,7 +39,7 @@ void useLocal()
     cout << "local x is " << x << " on exiting useLocal" << endl;
 }
 
-void useStaticLocal()
+inline void useStaticLocal()
 {
     static int x = 50;
     cout << "\nlocal static x is " << x << " on entering useStaticLocal"
@@ -49,7 +49,7 @@ void useStaticLocal()
          << endl;
 }
 
-void useGlobal()
+inline void useGlobal()
 {
     cout << "\nglobal x is " << x << " on entering useGlobal" << endl;
     x *= 10;
