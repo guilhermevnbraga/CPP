@@ -56,8 +56,8 @@ bool findPathDFS(Point src, Point dest, vector<Point>& path, vector<vector<bool>
 }
 
 int main() {
-    Point src = {0, 0};     // Origem
-    Point dest = {4, 4};    // Destino
+    Point src = {0, 0};     // Origin
+    Point dest = {4, 4};    // Destiny
 
     vector<Point> path;
     vector<vector<bool>> visited(N, vector<bool>(N, false));
