@@ -13,7 +13,7 @@ int main()
     cout << "x = " << x << " before squareByValue\n";
     cout << "Value returned by squareByValue: "
         << squareByValue(x) << endl;
-    cout << "x = " << x << " agter squareByValue\n" << endl;
+    cout << "x = " << x << " after squareByValue\n" << endl;
 
     cout << "z = " << z << " before squareByReference" << endl;
     squareByReference(z);
