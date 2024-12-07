@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+// Simulated Annealing for Function Minimization
+double objectiveFunction(double x) {
+    return x * x + 4 * cos(x); // Example: f(x) = x^2 + 4*cos(x)
+}
+
+// Generates a random neighbor in the range [x - delta, x + delta]
+double getRandomNeighbor(double x, double delta) {
+    return x + ((rand() / (double)RAND_MAX) * 2 * delta - delta);
+}
+
+// Simulated Annealing Algorithm
+double simulatedAnnealing(double initialTemp, double coolingRate, double minTemp, double delta) {
+    srand(time(0)); // Seed for random number generation
+
+    double currentX = rand() % 10 - 5; // Start at a random position in [-5, 5]
+    double currentTemp = initialTemp;
+    double bestX = currentX;
+
+    while (currentTemp > minTemp) {
+        double newX = getRandomNeighbor(currentX, delta);
+        double currentEnergy = objectiveFunction(currentX);
+        double newEnergy = objectiveFunction(newX);
+
+        // Accept new solution if it's better or based on probability
+        if (newEnergy < currentEnergy || exp((currentEnergy - newEnergy) / currentTemp) > (rand() / (double)RAND_MAX)) {
+            currentX = newX;
+        }
+
+        // Update the best solution found
+        if (objectiveFunction(currentX) < objectiveFunction(bestX)) {
+            bestX = currentX;
+        }
+
+        // Cool down
+        currentTemp *= coolingRate;
+    }
+
+    return bestX;
+}
+
+int main() {
+    double initialTemp = 100.0;  // Starting temperature
+    double coolingRate = 0.95;  // Cooling rate (0 < coolingRate < 1)
+    double minTemp = 1e-3;      // Minimum temperature
+    double delta = 1.0;         // Step size for neighbor generation
+
+    double result = simulatedAnnealing(initialTemp, coolingRate, minTemp, delta);
+    cout << "Minimum found at x = " << result << " with value f(x) = " << objectiveFunction(result) << endl;
+
+    return 0;
+}
